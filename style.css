@@ -22,7 +22,7 @@ body {
 .input-section, .preview-section {
   flex: 1;
   min-width: 100px;
-  background-color: #e0d5d5;
+  background: linear-gradient(45deg, #d7cac1, #efc5b8);
   border-radius: 50px;
   box-shadow: 0 4px 8px rgba(241, 133, 133, 0.1);
   padding: 20px;
