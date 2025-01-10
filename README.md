@@ -1,1 +1,1 @@
-<h2>Dynamic Resume Builder</h2>
+<h2> Resume Template</h2>
