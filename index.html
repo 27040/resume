@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dynamic Resume Builder</title>
+    <title> Resume Template</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
   </head>
@@ -14,6 +14,9 @@
       <div class="input-section">
         
         <div class="section">
+          <label for="profilePicture"><b>Upload Profile Picture</b></label>
+                <input type="file" id="profilePicture" name="profilePicture" accept="image/*">
+                <img id="profileImagePreview" src="#" alt="Profile Image Preview" style="display:none;">
           <h2 class="section-title">Personal Information</h2>
           <input type="text" id="fullName" placeholder="Full Name" >
           <input type="email" id="email" placeholder="Email" >

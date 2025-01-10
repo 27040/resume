@@ -1,3 +1,20 @@
+document.getElementById("profilePicture").addEventListener("change", previewProfileImage);
+
+function previewProfileImage(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        const profileImage = document.getElementById("profileImagePreview");
+        profileImage.style.display = "block";
+        profileImage.src = e.target.result;
+    }
+
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+
 function addExperience() {
   const container = document.getElementById("experienceInputs");
   const div = document.createElement("div");
