@@ -1,141 +1,102 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
+/* General Styling */
 body {
-  background-color: #f0f2f5;
-  padding: 20px;
+  
+    background-image: url('background.jpg');
+    background-size: cover; /* Adjusts the size of the image */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents tiling of the image */
+  
+  margin: 0;
+  font-family: Arial, sans-serif;
+  
+  color: #f02e2e;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 50px;
 }
 
-.input-section {
+.input-section, .preview-section {
   flex: 1;
-  background-color: white;
+  min-width: 100px;
+  background-color: #e0d5d5;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(241, 133, 133, 0.1);
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.preview-section {
-  flex: 1;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-}
-
+/* Section Styling */
 .section {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
-
+.section-h2 {
+  margin-bottom: 0px;
+  font-size: 50px;
+  color: #2c2c2c;
+}
 .section-title {
-  font-size: 18px;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 2px solid #3498db;
+  margin-bottom: 2px;
+  font-size: 20px;
+  color: #2c2c2c;
 }
 
-input,
-textarea {
-  width: 100%;
-  padding: 8px;
+/* Input Fields */
+input, textarea, button {
+  width: 90%;
+  margin-top: 5px;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #eba147;
+  border-radius: 50px;
+  font-size: 14px;
 }
 
 textarea {
   resize: vertical;
-  min-height: 100px;
 }
 
 button {
-  background-color: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
   cursor: pointer;
-  margin: 5px;
+  border :rgba(0, 0, 0, 0.1)
+  background :#feb47b
+  color: rgb(39, 35, 35);
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 50px;
+  transition: background 0.3s;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background: linear-gradient(45deg, #feb47b, #ff7e5f);
 }
 
-.dynamic-inputs {
-  margin-bottom: 15px;
-}
-
-.input-group {
-  border: 1px solid #ddd;
-  padding: 10px;
+/* Dynamic Inputs Container */
+.dynamic-inputs > div {
   margin-bottom: 10px;
-  border-radius: 4px;
 }
 
-.remove-btn {
-  background-color: #e74c3c;
-}
-
-.remove-btn:hover {
-  background-color: #c0392b;
-}
-
-/* Preview Styles */
+/* Resume Preview */
 .preview-content {
-  line-height: 1.6;
-}
-
-.preview-section h2 {
-  color: #2c3e50;
-  margin-bottom: 10px;
-}
-
-.preview-section h3 {
-  color: #34495e;
-  margin-bottom: 5px;
-}
-
-.preview-section p {
-  margin-bottom: 5px;
+  background-color: #f9f9f9;
+  border: 1px dashed #ddd;
+  border-radius: 5px;
+  padding: 200px;
+  font-size: 14px;
 }
 
 .print-btn {
-  background-color: #27ae60;
-  margin-top: 20px;
+  background-color: #6c63ff;
+  margin-top: 10px;
 }
 
 .print-btn:hover {
-  background-color: #219a52;
+  background-color: #5548d8;
 }
 
-@media print {
-  .input-section {
-    display: none;
-  }
-  .preview-section {
-    box-shadow: none;
-    padding: 0;
-  }
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
