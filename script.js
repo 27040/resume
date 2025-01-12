@@ -1,146 +1,158 @@
-document.getElementById("profilePicture").addEventListener("change", previewProfileImage);
+// alert("loading");
+function addNewLanField() {
+  let newNode = document.createElement("input");
+  newNode.classList.add("form-control");
+  newNode.classList.add("laField");
+  newNode.classList.add("mt-2");
+  newNode.setAttribute("placeholder", "Enter here");
 
-function previewProfileImage(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  let aqOb = document.getElementById("la");
+  let aqAddButtonOb = document.getElementById("laAddButton");
 
-    reader.onload = function(e) {
-        const profileImage = document.getElementById("profileImagePreview");
-        profileImage.style.display = "block";
-        profileImage.src = e.target.result;
-    }
-
-    if (file) {
-        reader.readAsDataURL(file);
-    }
+  aqOb.insertBefore(newNode, aqAddButtonOb);
 }
 
-function addExperience() {
-  const container = document.getElementById("experienceInputs");
-  const div = document.createElement("div");
-  div.className = "input-group";
-  div.innerHTML = `
-                <input type="text" placeholder="Company Name">
-                <input type="text" placeholder="Position">
-                <input type="text" placeholder="Duration">
-                <textarea placeholder="Description"></textarea>
-                <button onclick="this.parentElement.remove()" class="remove-btn">Remove</button>
-            `;
-  container.appendChild(div);
+function addNewEdField() {
+  let newNode = document.createElement("textarea");
+  newNode.classList.add("form-control");
+  newNode.classList.add("edField");
+  newNode.classList.add("mt-2");
+  newNode.setAttribute("rows", 3);
+  newNode.setAttribute("placeholder", "Enter here");
+
+  let aqOb = document.getElementById("ed");
+  let aqAddButtonOb = document.getElementById("aqAddButton");
+
+  aqOb.insertBefore(newNode, aqAddButtonOb);
 }
 
-function addEducation() {
-  const container = document.getElementById("educationInputs");
-  const div = document.createElement("div");
-  div.className = "input-group";
-  div.innerHTML = `
-                <input type="text" placeholder="Institution">
-                <input type="text" placeholder="Degree">
-                <input type="text" placeholder="Year">
-                <input type="text" placeholder="GPA/Score">
-                <button onclick="this.parentElement.remove()" class="remove-btn">Remove</button>
-            `;
-  container.appendChild(div);
+
+
+function addNewTiField() {
+  let x = document.createElement("input");
+  x.classList.add("form-control");
+  x.classList.add("tiField");
+  x.classList.add("mt-2");
+  x.setAttribute("placeholder", "Enter title");
+
+  let aqOb = document.getElementById("we");
+  let aqAddButtonOb = document.getElementById("weAddButton");
+  aqOb.insertBefore(x, aqAddButtonOb);
 }
 
-function addCertification() {
-  const container = document.getElementById("certificationInputs");
-  const div = document.createElement("div");
-  div.className = "input-group";
-  div.innerHTML = `
-                <input type="text" placeholder="Certification Name">
-                <input type="text" placeholder="Issuing Organization">
-                <input type="text" placeholder="Year">
-                <button onclick="this.parentElement.remove()" class="remove-btn">Remove</button>
-            `;
-  container.appendChild(div);
+function addNewWEField() {
+  // addNewTiField();
+  let newNode = document.createElement("textarea");
+  newNode.classList.add("form-control");
+  newNode.classList.add("weField");
+  newNode.classList.add("mt-2");
+  newNode.setAttribute("rows", 3);
+  newNode.setAttribute("placeholder", "Enter Experience");
+
+  let weOb = document.getElementById("we");
+  let weAddButtonOb = document.getElementById("weAddButton");
+  weOb.insertBefore(newNode, weAddButtonOb);
 }
 
-function addProject() {
-  const container = document.getElementById("projectInputs");
-  const div = document.createElement("div");
-  div.className = "input-group";
-  div.innerHTML = `
-                <input type="text" placeholder="Project Name">
-                <textarea placeholder="Project Description"></textarea>
-                <input type="text" placeholder="Technologies Used">
-                <button onclick="this.parentElement.remove()" class="remove-btn">Remove</button>
-            `;
-  container.appendChild(div);
+function addNewAQField() {
+  let newNode = document.createElement("input");
+  newNode.classList.add("form-control");
+  newNode.classList.add("skField");
+  newNode.classList.add("mt-2");
+  newNode.setAttribute("placeholder", "Enter here");
+
+  let aqOb = document.getElementById("sk");
+  let aqAddButtonOb = document.getElementById("skAddButton");
+
+  aqOb.insertBefore(newNode, aqAddButtonOb);
 }
 
-function generateResume() {
-  const preview = document.getElementById("resumePreview");
+//generating cv
+function generateCV() {
+  document.getElementById("nName").innerHTML =
+    document.getElementById("nameField").value;
 
-  // Personal Information
-  const personalInfo = `
-                <h2>Personal Information</h2>
-                <p><strong>${
-                  document.getElementById("fullName").value
-                }</strong></p>
-                <p>Email: ${document.getElementById("email").value}</p>
-                <p>Phone: ${document.getElementById("phone").value}</p>
-                <p>Location: ${document.getElementById("location").value}</p>
-            `;
+  // job title 
+  document.getElementById("jJob").innerHTML = document.getElementById(
+    "jobFiled"
+  ).value;
 
-  // Professional Summary
-  const summary = `
-                <h2>Professional Summary</h2>
-                <p>${document.getElementById("summary").value}</p>
-            `;
+  //contact
+  document.getElementById("cContact").innerHTML =
+    document.getElementById("contactField").value;
 
-  // Work Experience
-  let experience = "<h2>Work Experience</h2>";
-  document.querySelectorAll("#experienceInputs .input-group").forEach((exp) => {
-    const inputs = exp.querySelectorAll("input, textarea");
-    experience += `
-                    <h3>${inputs[0].value} - ${inputs[1].value}</h3>
-                    <p>${inputs[2].value}</p>
-                    <p>${inputs[3].value}</p>
-                `;
-  });
+  //gmail
+  document.getElementById("gGmail").innerHTML =
+    document.getElementById("gmailFiled").value;
 
-  // Education
-  let education = "<h2>Education</h2>";
-  document.querySelectorAll("#educationInputs .input-group").forEach((edu) => {
-    const inputs = edu.querySelectorAll("input");
-    education += `
-                    <h3>${inputs[0].value}</h3>
-                    <p>${inputs[1].value}</p>
-                    <p>${inputs[2].value} | GPA: ${inputs[3].value}</p>
-                `;
-  });
+  document.getElementById("fFacebook").href =
+    document.getElementById("fbField").value;
 
-  // Certifications
-  let certifications = "<h2>Certifications</h2>";
-  document
-    .querySelectorAll("#certificationInputs .input-group")
-    .forEach((cert) => {
-      const inputs = cert.querySelectorAll("input");
-      certifications += `
-                    <h3>${inputs[0].value}</h3>
-                    <p>${inputs[1].value} (${inputs[2].value})</p>
-                `;
-    });
+  document.getElementById("lLinkedin").href =
+    document.getElementById("linkedField").value;
 
-  // Projects
-  let projects = "<h2>Projects</h2>";
-  document.querySelectorAll("#projectInputs .input-group").forEach((proj) => {
-    const inputs = proj.querySelectorAll("input, textarea");
-    projects += `
-                    <h3>${inputs[0].value}</h3>
-                    <p>${inputs[1].value}</p>
-                    <p><strong>Technologies:</strong> ${inputs[2].value}</p>
-                `;
-  });
+  // languages
+  let languages = document.getElementsByClassName("laField");
+  let lanF = "";
+  for (let e of languages) {
+    lanF += `<li> <span> ${e.value} </span></li>`;
+  }
+  document.getElementById("lan").innerHTML = lanF;
 
-  // Combine all sections
-  preview.innerHTML =
-    personalInfo + summary + experience + education + certifications + projects;
+  //objective (about)
+  document.getElementById("objectiveT").innerHTML = document.getElementById("objectiveField").value;
+  // 
+
+  // education 
+  let educationF = document.getElementsByClassName("edField");
+  let resEdu = "";
+  for (let e of educationF) {
+    resEdu += `<li> <p> ${e.value} </p></li>`;
+  }
+  document.getElementById("edu").innerHTML = resEdu;
+  // title field
+  // let titleFF = document.getElementsByClassName("tiField");
+  // let titF = "";
+  // for (let e of titleFF) {
+  //     titF += `<h3> ${e.value} </h3>`;
+  // }
+  // document.getElementById("titleF").innerHTML = titF;
+  // work experience
+  let wes = document.getElementsByClassName("weField");
+  let str = "";
+  for (let e of wes) {
+    str += `<li class="squar"> <h4> ${e.value} </h4></li>`;
+  }
+  document.getElementById("weT").innerHTML = str;
+
+  // professional skills
+  let aqs = document.getElementsByClassName("skField");
+  let str1 = "";
+  for (let e of aqs) {
+    str1 += `<li class="squar"> <h4> ${e.value} </h4></li>`;
+  }
+  if (str1.length) document.getElementById("skills").innerHTML = str1;
+
+  //code for setting image
+
+  let file = document.getElementById("imgField").files[0];
+  let reader = new FileReader();
+
+  reader.readAsDataURL(file);
+
+  console.log(reader.result);
+
+  //set the image to template
+
+  reader.onloadend = function() {
+    document.getElementById("imgTemplate").src = reader.result;
+  };
 }
 
-// Add initial empty fields
-addExperience();
-addEducation();
-addCertification();
-addProject();
+//print cv
+function printCV() {
+  document.getElementById("cv-form").style.display = "none";
+  document.getElementById("cv-template").style.display = "block";
+  document.getElementById("btnN").style.display = "none";
+  window.print();
+}
