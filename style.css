@@ -307,3 +307,31 @@ h6 {
   color: #fff;
   letter-spacing: 1px;
 }
+
+.cv .projects {
+  margin-top: 20px;
+}
+
+.cv .projects .project-title {
+  font-weight: 600;
+  color: #003147;
+}
+
+.cv .projects .project-links {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.cv .projects .project-links a {
+  color: #03a9f4;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.cv .projects .description {
+  color: #333;
+  margin: 5px 0;
+  padding-left: 20px;
+  list-style-type: square;
+}

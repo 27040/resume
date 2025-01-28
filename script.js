@@ -26,6 +26,33 @@ function addNewEdField() {
   aqOb.insertBefore(newNode, aqAddButtonOb);
 }
 
+function addNewProjectField() {
+  let projectGroup = document.createElement("div");
+  projectGroup.classList.add("project-group");
+
+  projectGroup.innerHTML = `
+    <div class="form-group mt-2">
+      <label>Project Title</label>
+      <input type="text" placeholder="Enter Title" class="form-control projectTitleField" />
+    </div>
+    <div class="form-group mt-2">
+      <label>GitHub Link</label>
+      <input type="text" placeholder="Enter GitHub URL" class="form-control githubLinkField" />
+    </div>
+    <div class="form-group mt-2">
+      <label>Deployment Link</label>
+      <input type="text" placeholder="Enter Deployment URL" class="form-control deploymentLinkField" />
+    </div>
+    <div class="form-group mt-2">
+      <label>Description</label>
+      <textarea placeholder="Add description points" class="form-control projectDescField" rows="3"></textarea>
+    </div>
+  `;
+
+  let projectsDiv = document.getElementById("projects");
+  let projectAddButton = document.getElementById("projectAddButton");
+  projectsDiv.insertBefore(projectGroup, projectAddButton);
+}
 
 
 function addNewTiField() {
@@ -124,7 +151,40 @@ function generateCV() {
     str += `<li class="squar"> <h4> ${e.value} </h4></li>`;
   }
   document.getElementById("weT").innerHTML = str;
-
+  function generateCV() {
+    // Social Links
+    document.getElementById("linkedinT").innerText = document.getElementById("linkedinField").value;
+    document.getElementById("githubT").innerText = document.getElementById("githubField").value;
+  
+    // Projects Section
+    let projectsT = document.getElementById("projectsT");
+    projectsT.innerHTML = ""; // Clear existing content
+  
+    let projectTitles = document.getElementsByClassName("projectTitleField");
+    let githubLinks = document.getElementsByClassName("githubLinkField");
+    let deploymentLinks = document.getElementsByClassName("deploymentLinkField");
+    let projectDescs = document.getElementsByClassName("projectDescField");
+  
+    for (let i = 0; i < projectTitles.length; i++) {
+      let projectHTML = `
+        <div class="project">
+          <h3>${projectTitles[i].value}</h3>
+          <div class="project-links">
+            <a href="${githubLinks[i].value}" target="_blank">GitHub</a>
+            <a href="${deploymentLinks[i].value}" target="_blank">Deployment</a>
+          </div>
+          <ul class="description">
+            ${projectDescs[i].value
+              .split("\n")
+              .map((desc) => `<li>${desc}</li>`)
+              .join("")}
+          </ul>
+        </div>
+      `;
+      projectsT.innerHTML += projectHTML;
+    }
+  }
+  
   // professional skills
   let aqs = document.getElementsByClassName("skField");
   let str1 = "";

@@ -38,7 +38,16 @@
                 <label for="jobFiled">Your Job title </label>
                 <input type="text" id="jobFiled" placeholder="Enter here" class="form-control" />
               </div>
-
+              
+              <div class="form-group mt-2">
+                <label for="linkedinField">LinkedIn Profile</label>
+                <input type="text" id="linkedinField" placeholder="Enter LinkedIn URL" class="form-control" />
+              </div>
+              
+              <div class="form-group mt-2">
+                <label for="githubField">GitHub Profile</label>
+                <input type="text" id="githubField" placeholder="Enter GitHub URL" class="form-control" />
+              </div>
               <div class="form-group mt-2">
                 <label for="contactField">Your Contact</label>
                 <input type="text" id="contactField" placeholder="Enter here" class="form-control" />
@@ -97,7 +106,30 @@
                 <label for="">Objective</label>
                 <textarea id="objectiveField" rows="5" placeholder="Enter here" class="form-control"></textarea>
               </div>
-
+              <div class="form-group mt-5" id="projects">
+                <label for="projectTitle">Projects</label>
+                <div class="project-group">
+                  <div class="form-group mt-2">
+                    <label for="projectTitle">Project Title</label>
+                    <input type="text" placeholder="Enter Title" class="form-control projectTitleField" />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="githubLink">GitHub Link</label>
+                    <input type="text" placeholder="Enter GitHub URL" class="form-control githubLinkField" />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="deploymentLink">Deployment Link</label>
+                    <input type="text" placeholder="Enter Deployment URL" class="form-control deploymentLinkField" />
+                  </div>
+                  <div class="form-group mt-2">
+                    <label for="description">Description</label>
+                    <textarea placeholder="Add description points" class="form-control projectDescField" rows="3"></textarea>
+                  </div>
+                </div>
+                <div class="container text-center mt-2" id="projectAddButton">
+                  <button onclick="addNewProjectField()" class="btn btn-primary btn-sm">Add More</button>
+                </div>
+              </div>
               <div class="form-group mt-2" id="we">
                 <label for="">Work Experience</label>
                 <!-- <div class="form-group mt-2" id="ti">
